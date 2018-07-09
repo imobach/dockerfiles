@@ -1,0 +1,7 @@
+FROM yastdevel/ruby
+RUN zypper --gpg-auto-import-keys --non-interactive in --no-recommends \
+  ruby-devel \
+  ruby2.5-rubygem-byebug
+RUN gem install pry-byebug
+RUN echo "-rpry-byebug" > /root/.rspec
+COPY . /usr/src/app
